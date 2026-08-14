@@ -43,14 +43,11 @@ workflow Tree_Nine {
 
 		Boolean adhoc = false
 
-		# if you are running with persistent clusters, both of these must be filled in
-		# if you are identifying clusters ad-hoc, both of these must be undefined
-		File? persistent_cluster_meta
-		File? persistent_cluster_ids
-
-		# technically optional but should be included if the persistent files are included;
-		# this file helps track changes over time
-		File? previous_run_cluster_json
+		# if you are running with pre-existing clusters, all three of these must be filled in
+		# if you are identifying clusters ad-hoc, all three of these must be undefined
+		File? persistent_cluster_meta    # vital for persistent clusters
+		File? persistent_cluster_ids     # vital for persistent clusters
+		File? previous_run_cluster_json  # only used to generate a change report
 		
 		# related to putting clusters on Microreact
 		Boolean upload_clusters_to_microreact  = false
